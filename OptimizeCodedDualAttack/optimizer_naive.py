@@ -168,7 +168,7 @@ def optimize(res_starting_point, nb_iteration_optimiser, nb_core, option_dlsc, t
 
 
 
-def optimize_from_starting_parameter_without_experimental_polar_code(filename_starting_point,filename_output):
+def optimize_from_starting_parameter_without_experimental_polar_code(filename_starting_point,filename_output, target_proba_senu, mlwe):
 	with open(filename_starting_point, 'rb') as handle:
 		res_starting_point= pickle.load(handle)
 
@@ -260,7 +260,7 @@ if __name__ == "__main__":
 	# Supposed to run in a night maximum
 	target_prob = 0.3
 	target_proba_senu = RR(2 * target_prob)
-	mlwe = False
+	mlwe = True
 	mlwe_string = 'mlwe' if mlwe else 'lwe'
 	filename_starting_point = f'{mlwe_string}_start_parameter.pkl'
 	filename_output1 = f'{mlwe_string}_optimized_withoutExperimentalPolar.pkl'
